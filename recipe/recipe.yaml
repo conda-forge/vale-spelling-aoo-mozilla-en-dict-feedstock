@@ -1,22 +1,19 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/prefix-dev/recipe-format/main/schema.json
 schema_version: 1
 
 context:
   version: "2026.09.01"
-  aooomd: aoo-mozilla-en-dict
-  pkg_stem: vale-spelling-${{ aoomd }}
-  pkg_au: ${{ pkg_stem }}-au
-  pkg_ca: ${{ pkg_stem }}-ca
-  pkg_gb: ${{ pkg_stem }}-gb
-  pkg_us: ${{ pkg_stem }}-us
-  pkg_za: ${{ pkg_stem }}-za
+  aoomd: aoo-mozilla-en-dict
+  stem: vale-spelling-${{ aoomd }}
+  pkg_au: ${{ stem }}-au
+  pkg_ca: ${{ stem }}-ca
+  pkg_gb: ${{ stem }}-gb
+  pkg_us: ${{ stem }}-us
+  pkg_za: ${{ stem }}-za
   share_vale: share/vale/styles
   share_hunspell: share/hunspell
-  aoomed_url: https://github.com/marcoagpinto/${{ aooomd }}
-  readme: README>md
   rules: Spelling.yml
   meta: meta.json
-  vale_files: "{${{ meta }},${{ rules }},${{ readme }}}"
+  vale_files: "{${{ meta }},${{ rules }},LICENSE}"
   summary: Vale-compatible English Dictionaries Project (AOO+Mozilla+others)
 
 recipe:
@@ -41,52 +38,52 @@ outputs:
 
   - package: { name: "${{ pkg_au }}" }
     inherit: staging
-    build: { files: "${{ share_vale }}/${{ pkg_au }}" }
-    requirements: {run: ["${{ aooomd }}-au"]}
+    build: { files: ["${{ share_vale }}/${{ pkg_au }}"] }
+    requirements: { run: ["${{ aoomd }}-au"] }
     tests:
       - package_contents:
           strict: true
-          files: "${{ share_vale }}/${{ pkg_ca }}/${{ vale_files }}"
+          files: ["${{ share_vale }}/${{ pkg_ca }}/${{ vale_files }}"]
     about: { summary: "${{ summary }} (en-AU)" }
 
   - package: { name: "${{ pkg_ca }}" }
     inherit: staging
-    build: { files: "${{ share_vale }}/${{ pkg_ca }}" }
-    requirements: {run: ["${{ aooomd }}-ca"]}
+    build: { files: ["${{ share_vale }}/${{ pkg_ca }}"] }
+    requirements: { run: ["${{ aoomd }}-ca"] }
     tests:
       - package_contents:
           strict: true
-          files: "${{ share_vale }}/${{ pkg_ca }}/${{ vale_files }}"
+          files: ["${{ share_vale }}/${{ pkg_ca }}/${{ vale_files }}"]
     about: { summary: "${{ summary }} (en-CA)" }
 
   - package: { name: "${{ pkg_gb }}" }
     inherit: staging
-    build: { files: "${{ share_vale }}/${{ pkg_gb }}" }
-    requirements: {run: ["${{ aooomd }}-gb"]}
+    build: { files: ["${{ share_vale }}/${{ pkg_gb }}"] }
+    requirements: { run: ["${{ aoomd }}-gb"] }
     tests:
       - package_contents:
           strict: true
-          files: "${{ share_vale }}/${{ pkg_gb }}/${{ vale_files }}"
+          files: ["${{ share_vale }}/${{ pkg_gb }}/${{ vale_files }}"]
     about: { summary: "${{ summary }} (en-GB)" }
 
   - package: { name: "${{ pkg_us }}" }
     inherit: staging
-    build: { files: "${{ share_vale }}/${{ pkg_us }}" }
-    requirements: {run: ["${{ aooomd }}-us"]}
+    build: { files: ["${{ share_vale }}/${{ pkg_us }}"] }
+    requirements: { run: ["${{ aoomd }}-us"] }
     tests:
       - package_contents:
           strict: true
-          files: "${{ share_vale }}/${{ pkg_us }}/${{ vale_files }}"
+          files: ["${{ share_vale }}/${{ pkg_us }}/${{ vale_files }}"]
     about: { summary: "${{ summary }} (en-US)" }
 
   - package: { name: "${{ pkg_za }}" }
     inherit: staging
-    build: { files: "${{ share_vale }}/${{ pkg_za }}" }
-    requirements: {run: ["${{ aooomd }}-za"]}
+    build: { files: ["${{ share_vale }}/${{ pkg_za }}"] }
+    requirements: { run: ["${{ aoomd }}-za"] }
     tests:
       - package_contents:
           strict: true
-          files: "${{ share_vale }}/${{ pkg_za }}/${{ vale_files }}"
+          files: ["${{ share_vale }}/${{ pkg_za }}/${{ vale_files }}"]
     about: { summary: "${{ summary }} (en-ZA)" }
 
   - package: { name: "${{ stem }}" }
