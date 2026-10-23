@@ -6,6 +6,7 @@ from textwrap import indent
 
 from pytest import fixture, main
 
+AOOMED = "aoo-mozilla-en-dict"
 PKG = os.environ["PKG_NAME"].replace("vale-spelling-", "")
 PYTEST_ARGS = ["-s", "-vv", "--color=yes", __file__]
 
@@ -13,14 +14,18 @@ STYLES = Path(os.environ["PREFIX"]) / "share/vale/styles"
 
 VALE_ARGS = ["vale", "--output=JSON"]
 VALE_INI = ".vale.ini"
-LOCALES = ["au", "ca", "gb", "us", "za"]
+LOCALES = (
+    ["au", "ca", "gb", "gb-oxendict", "us", "za"]
+    if PKG == AOOMED
+    else [PKG.replace(f"{AOOMED}-", "")]
+)
 
 VALE_INI_TEMPLATE = """
 MinAlertLevel = suggestion
-Packages = {name}-{locale}
+Packages = {aoomed}-{locale}
 
 [*]
-BasedOnStyles = {name}-{locale}
+BasedOnStyles = {aoomed}-{locale}
 
 Vale.Spelling = NO
 """
@@ -41,7 +46,7 @@ def a_locale(request) -> str:
 
 def vale(word: str, expected: str, locale: str, tmp_path: Path):
     config = tmp_path / VALE_INI
-    config.write_text(VALE_INI_TEMPLATE.format(name=PKG, locale=locale.lower()))
+    config.write_text(VALE_INI_TEMPLATE.format(aoomed=AOOMED, locale=locale.lower()))
     readme = tmp_path / "README.md"
     readme.write_text(word, encoding="utf-8")
     args = [*VALE_ARGS, readme.name]
