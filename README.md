@@ -20,7 +20,7 @@ Home: https://github.com/marcoagpinto/aoo-mozilla-en-dict
 
 Package license: LGPL-3.0-or-later
 
-Summary: Vale-compatible English Dictionaries Project (AOO+Mozilla+others) (en-AU)
+Summary: Vale-compatible English Dictionaries Project (AOO+Mozilla+others) (en_AU)
 
 About vale-spelling-aoo-mozilla-en-dict-ca
 ------------------------------------------
@@ -29,7 +29,7 @@ Home: https://github.com/marcoagpinto/aoo-mozilla-en-dict
 
 Package license: LGPL-3.0-or-later
 
-Summary: Vale-compatible English Dictionaries Project (AOO+Mozilla+others) (en-CA)
+Summary: Vale-compatible English Dictionaries Project (AOO+Mozilla+others) (en_CA)
 
 About vale-spelling-aoo-mozilla-en-dict-gb
 ------------------------------------------
@@ -38,7 +38,16 @@ Home: https://github.com/marcoagpinto/aoo-mozilla-en-dict
 
 Package license: LGPL-3.0-or-later
 
-Summary: Vale-compatible English Dictionaries Project (AOO+Mozilla+others) (en-GB)
+Summary: Vale-compatible English Dictionaries Project (AOO+Mozilla+others) (en_GB)
+
+About vale-spelling-aoo-mozilla-en-dict-gb-oxendict
+---------------------------------------------------
+
+Home: https://github.com/marcoagpinto/aoo-mozilla-en-dict
+
+Package license: LGPL-3.0-or-later
+
+Summary: Vale-compatible English Dictionaries Project (AOO+Mozilla+others) (en_GB-oxendict)
 
 About vale-spelling-aoo-mozilla-en-dict-us
 ------------------------------------------
@@ -47,7 +56,7 @@ Home: https://github.com/marcoagpinto/aoo-mozilla-en-dict
 
 Package license: LGPL-3.0-or-later
 
-Summary: Vale-compatible English Dictionaries Project (AOO+Mozilla+others) (en-US)
+Summary: Vale-compatible English Dictionaries Project (AOO+Mozilla+others) (en_US)
 
 About vale-spelling-aoo-mozilla-en-dict-za
 ------------------------------------------
@@ -56,7 +65,7 @@ Home: https://github.com/marcoagpinto/aoo-mozilla-en-dict
 
 Package license: LGPL-3.0-or-later
 
-Summary: Vale-compatible English Dictionaries Project (AOO+Mozilla+others) (en-ZA)
+Summary: Vale-compatible English Dictionaries Project (AOO+Mozilla+others) (en_ZA)
 
 Current build status
 ====================
@@ -81,6 +90,7 @@ Current release info
 | [![Conda Recipe](https://img.shields.io/badge/recipe-vale--spelling--aoo--mozilla--en--dict--au-green.svg)](https://anaconda.org/conda-forge/vale-spelling-aoo-mozilla-en-dict-au) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/vale-spelling-aoo-mozilla-en-dict-au.svg)](https://anaconda.org/conda-forge/vale-spelling-aoo-mozilla-en-dict-au) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/vale-spelling-aoo-mozilla-en-dict-au.svg)](https://anaconda.org/conda-forge/vale-spelling-aoo-mozilla-en-dict-au) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/vale-spelling-aoo-mozilla-en-dict-au.svg)](https://anaconda.org/conda-forge/vale-spelling-aoo-mozilla-en-dict-au) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-vale--spelling--aoo--mozilla--en--dict--ca-green.svg)](https://anaconda.org/conda-forge/vale-spelling-aoo-mozilla-en-dict-ca) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/vale-spelling-aoo-mozilla-en-dict-ca.svg)](https://anaconda.org/conda-forge/vale-spelling-aoo-mozilla-en-dict-ca) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/vale-spelling-aoo-mozilla-en-dict-ca.svg)](https://anaconda.org/conda-forge/vale-spelling-aoo-mozilla-en-dict-ca) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/vale-spelling-aoo-mozilla-en-dict-ca.svg)](https://anaconda.org/conda-forge/vale-spelling-aoo-mozilla-en-dict-ca) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-vale--spelling--aoo--mozilla--en--dict--gb-green.svg)](https://anaconda.org/conda-forge/vale-spelling-aoo-mozilla-en-dict-gb) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/vale-spelling-aoo-mozilla-en-dict-gb.svg)](https://anaconda.org/conda-forge/vale-spelling-aoo-mozilla-en-dict-gb) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/vale-spelling-aoo-mozilla-en-dict-gb.svg)](https://anaconda.org/conda-forge/vale-spelling-aoo-mozilla-en-dict-gb) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/vale-spelling-aoo-mozilla-en-dict-gb.svg)](https://anaconda.org/conda-forge/vale-spelling-aoo-mozilla-en-dict-gb) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-vale--spelling--aoo--mozilla--en--dict--gb--oxendict-green.svg)](https://anaconda.org/conda-forge/vale-spelling-aoo-mozilla-en-dict-gb-oxendict) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/vale-spelling-aoo-mozilla-en-dict-gb-oxendict.svg)](https://anaconda.org/conda-forge/vale-spelling-aoo-mozilla-en-dict-gb-oxendict) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/vale-spelling-aoo-mozilla-en-dict-gb-oxendict.svg)](https://anaconda.org/conda-forge/vale-spelling-aoo-mozilla-en-dict-gb-oxendict) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/vale-spelling-aoo-mozilla-en-dict-gb-oxendict.svg)](https://anaconda.org/conda-forge/vale-spelling-aoo-mozilla-en-dict-gb-oxendict) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-vale--spelling--aoo--mozilla--en--dict--us-green.svg)](https://anaconda.org/conda-forge/vale-spelling-aoo-mozilla-en-dict-us) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/vale-spelling-aoo-mozilla-en-dict-us.svg)](https://anaconda.org/conda-forge/vale-spelling-aoo-mozilla-en-dict-us) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/vale-spelling-aoo-mozilla-en-dict-us.svg)](https://anaconda.org/conda-forge/vale-spelling-aoo-mozilla-en-dict-us) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/vale-spelling-aoo-mozilla-en-dict-us.svg)](https://anaconda.org/conda-forge/vale-spelling-aoo-mozilla-en-dict-us) |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-vale--spelling--aoo--mozilla--en--dict--za-green.svg)](https://anaconda.org/conda-forge/vale-spelling-aoo-mozilla-en-dict-za) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/vale-spelling-aoo-mozilla-en-dict-za.svg)](https://anaconda.org/conda-forge/vale-spelling-aoo-mozilla-en-dict-za) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/vale-spelling-aoo-mozilla-en-dict-za.svg)](https://anaconda.org/conda-forge/vale-spelling-aoo-mozilla-en-dict-za) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/vale-spelling-aoo-mozilla-en-dict-za.svg)](https://anaconda.org/conda-forge/vale-spelling-aoo-mozilla-en-dict-za) |
 
@@ -101,7 +111,7 @@ How to use
 <summary>With conda</summary>
 
 ```
-conda install vale-spelling-aoo-mozilla-en-dict vale-spelling-aoo-mozilla-en-dict-au vale-spelling-aoo-mozilla-en-dict-ca vale-spelling-aoo-mozilla-en-dict-gb vale-spelling-aoo-mozilla-en-dict-us vale-spelling-aoo-mozilla-en-dict-za
+conda install vale-spelling-aoo-mozilla-en-dict vale-spelling-aoo-mozilla-en-dict-au vale-spelling-aoo-mozilla-en-dict-ca vale-spelling-aoo-mozilla-en-dict-gb vale-spelling-aoo-mozilla-en-dict-gb-oxendict vale-spelling-aoo-mozilla-en-dict-us vale-spelling-aoo-mozilla-en-dict-za
 ```
 
 </details>
@@ -110,7 +120,7 @@ conda install vale-spelling-aoo-mozilla-en-dict vale-spelling-aoo-mozilla-en-dic
 <summary>With mamba</summary>
 
 ```
-mamba install vale-spelling-aoo-mozilla-en-dict vale-spelling-aoo-mozilla-en-dict-au vale-spelling-aoo-mozilla-en-dict-ca vale-spelling-aoo-mozilla-en-dict-gb vale-spelling-aoo-mozilla-en-dict-us vale-spelling-aoo-mozilla-en-dict-za
+mamba install vale-spelling-aoo-mozilla-en-dict vale-spelling-aoo-mozilla-en-dict-au vale-spelling-aoo-mozilla-en-dict-ca vale-spelling-aoo-mozilla-en-dict-gb vale-spelling-aoo-mozilla-en-dict-gb-oxendict vale-spelling-aoo-mozilla-en-dict-us vale-spelling-aoo-mozilla-en-dict-za
 ```
 
 </details>
@@ -120,9 +130,9 @@ mamba install vale-spelling-aoo-mozilla-en-dict vale-spelling-aoo-mozilla-en-dic
 
 ```
 # for adding to your local project
-pixi add vale-spelling-aoo-mozilla-en-dict vale-spelling-aoo-mozilla-en-dict-au vale-spelling-aoo-mozilla-en-dict-ca vale-spelling-aoo-mozilla-en-dict-gb vale-spelling-aoo-mozilla-en-dict-us vale-spelling-aoo-mozilla-en-dict-za
+pixi add vale-spelling-aoo-mozilla-en-dict vale-spelling-aoo-mozilla-en-dict-au vale-spelling-aoo-mozilla-en-dict-ca vale-spelling-aoo-mozilla-en-dict-gb vale-spelling-aoo-mozilla-en-dict-gb-oxendict vale-spelling-aoo-mozilla-en-dict-us vale-spelling-aoo-mozilla-en-dict-za
 # for installing globally
-pixi global install vale-spelling-aoo-mozilla-en-dict vale-spelling-aoo-mozilla-en-dict-au vale-spelling-aoo-mozilla-en-dict-ca vale-spelling-aoo-mozilla-en-dict-gb vale-spelling-aoo-mozilla-en-dict-us vale-spelling-aoo-mozilla-en-dict-za
+pixi global install vale-spelling-aoo-mozilla-en-dict vale-spelling-aoo-mozilla-en-dict-au vale-spelling-aoo-mozilla-en-dict-ca vale-spelling-aoo-mozilla-en-dict-gb vale-spelling-aoo-mozilla-en-dict-gb-oxendict vale-spelling-aoo-mozilla-en-dict-us vale-spelling-aoo-mozilla-en-dict-za
 ```
 
 </details>
