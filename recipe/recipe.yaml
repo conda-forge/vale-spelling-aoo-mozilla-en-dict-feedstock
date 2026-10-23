@@ -1,0 +1,114 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/prefix-dev/recipe-format/main/schema.json
+schema_version: 1
+
+context:
+  version: "2026.09.01"
+  aooomd: aoo-mozilla-en-dict
+  pkg_stem: vale-spelling-${{ aoomd }}
+  pkg_au: ${{ pkg_stem }}-au
+  pkg_ca: ${{ pkg_stem }}-ca
+  pkg_gb: ${{ pkg_stem }}-gb
+  pkg_us: ${{ pkg_stem }}-us
+  pkg_za: ${{ pkg_stem }}-za
+  share_vale: share/vale/styles
+  share_hunspell: share/hunspell
+  aoomed_url: https://github.com/marcoagpinto/${{ aooomd }}
+  readme: README>md
+  rules: Spelling.yml
+  meta: meta.json
+  vale_files: "{${{ meta }},${{ rules }},${{ readme }}}"
+  summary: Vale-compatible English Dictionaries Project (AOO+Mozilla+others)
+
+recipe:
+  name: ${{ stem }}-split
+  version: ${{ version }}
+
+source:
+  url: https://github.com/marcoagpinto/aoo-mozilla-en-dict/archive/${{ version }}.tar.gz
+  sha256: 68349bfc36a17bddb16f8fde63fa10f5cf82f1e6c7b21393d3389e303cf2d97d
+
+build:
+  number: 0
+  noarch: generic
+
+outputs:
+  - staging:
+      name: staging
+    build:
+      script:
+        file: write_rule.py
+    requirements: { host: ["python >=3.14"] }
+
+  - package: { name: "${{ pkg_au }}" }
+    inherit: staging
+    build: { files: "${{ share_vale }}/${{ pkg_au }}" }
+    requirements: {run: ["${{ aooomd }}-au"]}
+    tests:
+      - package_contents:
+          strict: true
+          files: "${{ share_vale }}/${{ pkg_ca }}/${{ vale_files }}"
+    about: { summary: "${{ summary }} (en-AU)" }
+
+  - package: { name: "${{ pkg_ca }}" }
+    inherit: staging
+    build: { files: "${{ share_vale }}/${{ pkg_ca }}" }
+    requirements: {run: ["${{ aooomd }}-ca"]}
+    tests:
+      - package_contents:
+          strict: true
+          files: "${{ share_vale }}/${{ pkg_ca }}/${{ vale_files }}"
+    about: { summary: "${{ summary }} (en-CA)" }
+
+  - package: { name: "${{ pkg_gb }}" }
+    inherit: staging
+    build: { files: "${{ share_vale }}/${{ pkg_gb }}" }
+    requirements: {run: ["${{ aooomd }}-gb"]}
+    tests:
+      - package_contents:
+          strict: true
+          files: "${{ share_vale }}/${{ pkg_gb }}/${{ vale_files }}"
+    about: { summary: "${{ summary }} (en-GB)" }
+
+  - package: { name: "${{ pkg_us }}" }
+    inherit: staging
+    build: { files: "${{ share_vale }}/${{ pkg_us }}" }
+    requirements: {run: ["${{ aooomd }}-us"]}
+    tests:
+      - package_contents:
+          strict: true
+          files: "${{ share_vale }}/${{ pkg_us }}/${{ vale_files }}"
+    about: { summary: "${{ summary }} (en-US)" }
+
+  - package: { name: "${{ pkg_za }}" }
+    inherit: staging
+    build: { files: "${{ share_vale }}/${{ pkg_za }}" }
+    requirements: {run: ["${{ aooomd }}-za"]}
+    tests:
+      - package_contents:
+          strict: true
+          files: "${{ share_vale }}/${{ pkg_za }}/${{ vale_files }}"
+    about: { summary: "${{ summary }} (en-ZA)" }
+
+  - package: { name: "${{ stem }}" }
+    requirements:
+      run:
+        - ${{ pin_subpackage(pkg_au, exact=True) }}
+        - ${{ pin_subpackage(pkg_ca, exact=True) }}
+        - ${{ pin_subpackage(pkg_gb, exact=True) }}
+        - ${{ pin_subpackage(pkg_us, exact=True) }}
+        - ${{ pin_subpackage(pkg_za, exact=True) }}
+        - vale
+    tests:
+      - requirements: { run: [pytest, python >=3.14] }
+        script: { file: test_spelling.py }
+
+about:
+  homepage: https://github.com/marcoagpinto/aoo-mozilla-en-dict
+  summary: ${{ summary }}
+  license: LGPL-3.0-or-later
+  license_file: README.md
+
+extra:
+  feedstock-name: ${{ stem }}
+  recipe-maintainers:
+    - bollwyvl

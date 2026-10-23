@@ -1,10 +1,3 @@
-{% set version = "2024-03-01" %}
-{% set dotted_version = version.replace("-", ".") %}
-{% set list = "ls -lathr" %}    # [unix]
-{% set list = "dir /s" %}  # [win]
-{% set prefix_env = "$PREFIX" %}    # [unix]
-{% set prefix_env = "%PREFIX%" %}  # [win]
-
 
 package:
   name: vale-spelling-aoo-mozilla-en-dict-split
