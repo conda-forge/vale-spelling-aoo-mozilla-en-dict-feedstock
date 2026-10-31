@@ -1,0 +1,138 @@
+schema_version: 1
+
+context:
+  version: "2026.09.01"
+  aoomed: aoo-mozilla-en-dict
+  stem: vale-spelling-${{ aoomed }}
+  pkg_au: ${{ stem }}-au
+  pkg_ca: ${{ stem }}-ca
+  pkg_gb: ${{ stem }}-gb
+  pkg_gb_ox: ${{ stem }}-gb-oxendict
+  pkg_us: ${{ stem }}-us
+  pkg_za: ${{ stem }}-za
+  share_vale: share/vale/styles/${{ aoomed }}
+  share_hunspell: share/hunspell
+  rules: Spelling.yml
+  meta: meta.json
+  vale_files: "{${{ meta }},${{ rules }},LICENSE}"
+  summary: Vale-compatible English Dictionaries Project (AOO+Mozilla+others)
+
+recipe:
+  name: ${{ stem }}-split
+  version: ${{ version }}
+
+source:
+  url: https://github.com/marcoagpinto/aoo-mozilla-en-dict/archive/${{ version }}.tar.gz
+  sha256: 68349bfc36a17bddb16f8fde63fa10f5cf82f1e6c7b21393d3389e303cf2d97d
+
+build:
+  number: 0
+  noarch: generic
+
+outputs:
+  - staging:
+      name: staging
+    build:
+      script:
+        env:
+          PKG_VERSION: ${{ version }}
+          PKG_LOCALES: en_AU en_CA en_GB en_GB-oxendict en_US en_ZA
+        file: write_rule.py
+    requirements: { host: ["python >=3.14"] }
+
+  - package: { name: "${{ pkg_au }}" }
+    inherit: staging
+    build: { files: ["${{ share_vale }}-au/**"] }
+    requirements: { run: ["${{ aoomed }}-au ${{ version }}.*"] }
+    tests:
+      - package_contents:
+          strict: true
+          files: ["${{ share_vale }}-au/${{ vale_files }}"]
+      - requirements: { run: [pytest, python >=3.14, vale] }
+        script: { file: test_spelling.py }
+    about: { summary: "${{ summary }} (en_AU)" }
+
+  - package: { name: "${{ pkg_ca }}" }
+    inherit: staging
+    build: { files: ["${{ share_vale }}-ca/**"] }
+    requirements: { run: ["${{ aoomed }}-ca ${{ version }}.*"] }
+    tests:
+      - package_contents:
+          strict: true
+          files: ["${{ share_vale }}-ca/${{ vale_files }}"]
+      - requirements: { run: [pytest, python >=3.14, vale] }
+        script: { file: test_spelling.py }
+    about: { summary: "${{ summary }} (en_CA)" }
+
+  - package: { name: "${{ pkg_gb }}" }
+    inherit: staging
+    build: { files: ["${{ share_vale }}-gb/**"] }
+    requirements: { run: ["${{ aoomed }}-gb ${{ version }}.*"] }
+    tests:
+      - package_contents:
+          strict: true
+          files: ["${{ share_vale }}-gb/${{ vale_files }}"]
+      - requirements: { run: [pytest, python >=3.14, vale] }
+        script: { file: test_spelling.py }
+    about: { summary: "${{ summary }} (en_GB)" }
+
+  - package: { name: "${{ pkg_gb_ox }}" }
+    inherit: staging
+    build: { files: ["${{ share_vale }}-gb-oxendict/**"] }
+    requirements: { run: ["${{ aoomed }}-gb-oxendict ${{ version }}.*"] }
+    tests:
+      - package_contents:
+          strict: true
+          files: ["${{ share_vale }}-gb-oxendict/${{ vale_files }}"]
+      - requirements: { run: [pytest, python >=3.14, vale] }
+        script: { file: test_spelling.py }
+    about: { summary: "${{ summary }} (en_GB-oxendict)" }
+
+  - package: { name: "${{ pkg_us }}" }
+    inherit: staging
+    build: { files: ["${{ share_vale }}-us/**"] }
+    requirements: { run: ["${{ aoomed }}-us ${{ version }}.*"] }
+    tests:
+      - package_contents:
+          strict: true
+          files: ["${{ share_vale }}-us/${{ vale_files }}"]
+      - requirements: { run: [pytest, python >=3.14, vale] }
+        script: { file: test_spelling.py }
+    about: { summary: "${{ summary }} (en_US)" }
+
+  - package: { name: "${{ pkg_za }}" }
+    inherit: staging
+    build: { files: ["${{ share_vale }}-za/**"] }
+    requirements: { run: ["${{ aoomed }}-za ${{ version }}.*"] }
+    tests:
+      - package_contents:
+          strict: true
+          files: ["${{ share_vale }}-za/${{ vale_files }}"]
+      - requirements: { run: [pytest, python >=3.14, vale] }
+        script: { file: test_spelling.py }
+    about: { summary: "${{ summary }} (en_ZA)" }
+
+  - package: { name: "${{ stem }}" }
+    requirements:
+      run:
+        - ${{ pin_subpackage(pkg_au, exact=True) }}
+        - ${{ pin_subpackage(pkg_ca, exact=True) }}
+        - ${{ pin_subpackage(pkg_gb, exact=True) }}
+        - ${{ pin_subpackage(pkg_gb_ox, exact=True) }}
+        - ${{ pin_subpackage(pkg_us, exact=True) }}
+        - ${{ pin_subpackage(pkg_za, exact=True) }}
+        - vale
+    tests:
+      - requirements: { run: [pytest, python >=3.14] }
+        script: { file: test_spelling.py }
+
+about:
+  homepage: https://github.com/marcoagpinto/aoo-mozilla-en-dict
+  summary: ${{ summary }}
+  license: LGPL-3.0-or-later
+  license_file: README.md
+
+extra:
+  feedstock-name: vale-spelling-aoo-mozilla-en-dict
+  recipe-maintainers:
+    - bollwyvl
